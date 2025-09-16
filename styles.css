@@ -9,8 +9,10 @@ body {
   color: #fff;
   font-family: 'Courier New', monospace;
   overflow-x: hidden;
+  height: 100vh;
 }
 
+/* ANIMATED BACKGROUND */
 body::before {
   content: "";
   position: fixed;
@@ -18,7 +20,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(125deg, #000, #111, #222, #000);
+  background: linear-gradient(125deg, #000000, #0a0a0a, #111111, #000000);
   z-index: -2;
 }
 
@@ -35,6 +37,212 @@ body::after {
     rgba(255, 0, 80, 0.1) 1px,
     transparent 1px,
     transparent 2px
+  );
+  z-index: -1;
+  animation: scan 10s infinite linear;
+}
+
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-shadow: 0 0 10px #ff0050;
+}
+
+.v { 
+  color: #ff0050;
+  text-shadow: 0 0 15px #ff0050;
+}
+
+.ai { 
+  color: #00ffcc;
+  text-shadow: 0 0 15px #00ffcc;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.nav-link {
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ff0050;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff0050;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* HERO SECTION */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  text-shadow: 
+    0 0 10px #ff0050,
+    0 0 20px #ff0050,
+    0 0 30px #ff0050;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { 
+    text-shadow: 0 0 10px #ff0050, 0 0 20px #ff0050;
+  }
+  to { 
+    text-shadow: 0 0 20px #ff0050, 0 0 30px #ff0050, 0 0 40px #ff0050;
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #ccc;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#start-btn {
+  background: linear-gradient(45deg, #ff0050, #00ffcc);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+#start-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 80, 0.7);
+}
+
+/* FORM CONTAINER */
+.form-container {
+  background: rgba(10, 10, 10, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid #ff0050;
+  box-shadow: 0 0 50px rgba(255, 0, 80, 0.5);
+  width: 100%;
+  max-width: 500px;
+  animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-container h2 {
+  margin-bottom: 2rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+form input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ff0050;
+  box-shadow: 0 0 10px rgba(255, 0, 80, 0.5);
+}
+
+form button {
+  width: 100%;
+  padding: 1rem;
+  background: #ff0050;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #ff3366;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}    transparent 2px
   );
   z-index: -1;
   animation: scan 10s infinite linear;
