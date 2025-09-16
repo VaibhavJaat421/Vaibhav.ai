@@ -5,26 +5,44 @@
 }
 
 body {
-  background-color: #0a0a0a;
+  background: #0a0a0a;
   color: #fff;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Courier New', monospace;
   overflow-x: hidden;
 }
 
-.background-video {
+body::before {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0.25;
+  background: linear-gradient(125deg, #000, #111, #222, #000);
+  z-index: -2;
 }
 
-#bg-video {
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 80, 0.1),
+    rgba(255, 0, 80, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: -1;
+  animation: scan 10s infinite linear;
+}
+
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
 }
 
 nav {
@@ -35,6 +53,148 @@ nav {
 }
 
 .logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.v { color: #ff0050; }
+.ai { color: #00ffcc; }
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.nav-link {
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff0050;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  text-shadow: 
+    0 0 10px #ff0050,
+    0 0 20px #ff0050,
+    0 0 30px #ff0050;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff0050; }
+  to { text-shadow: 0 0 30px #ff0050, 0 0 40px #ff0050; }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #ccc;
+}
+
+#start-btn {
+  background: linear-gradient(45deg, #ff0050, #00ffcc);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+#start-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 80, 0.7);
+}
+
+.form-container {
+  background: rgba(10, 10, 10, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid #ff0050;
+  box-shadow: 0 0 50px rgba(255, 0, 80, 0.5);
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-container h2 {
+  margin-bottom: 2rem;
+  color: #00ffcc;
+}
+
+form input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ff0050;
+}
+
+form button {
+  width: 100%;
+  padding: 1rem;
+  background: #ff0050;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #ff3366;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+  }.logo {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
