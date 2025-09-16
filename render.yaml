@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: vaibhav-ai
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        fromSecret: MONGO_URI
+      - key: PORT
+        value: 3000

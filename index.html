@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaibhav.AI — Unlimited AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <div class="background-video">
+    <video autoplay muted loop id="bg-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-network-connection-53823-large.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <nav>
+    <div class="logo">
+      <span class="v">V</span>AIBHAV<span class="ai">.AI</span>
+    </div>
+    <ul>
+      <li><a href="#" class="nav-link">HOME</a></li>
+      <li><a href="#feedback" class="nav-link">FEEDBACK</a></li>
+      <li><a href="#admin" class="nav-link">ADMIN</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1 class="glitch" data-text="UNRESTRICTED AI">UNRESTRICTED AI</h1>
+      <p class="subtitle">No filters. No limits. No rules. Ask anything.</p>
+      <button id="start-btn" class="pulse">START CHAT NOW</button>
+    </div>
+
+    <div class="form-container hidden">
+      <h2>ENTER YOUR DETAILS</h2>
+      <form id="user-form">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="tel" id="phone" placeholder="Phone (10 digits)" required>
+        <input type="text" id="state" placeholder="State" required>
+        <input type="text" id="country" placeholder="Country" required>
+        <button type="submit">PROCEED TO CHAT →</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
