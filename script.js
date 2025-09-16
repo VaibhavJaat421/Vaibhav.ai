@@ -1,18 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  gsap.from('.hero h1', { duration: 1.5, y: -50, opacity: 0, ease: 'power3.out' });
-  gsap.from('.subtitle', { duration: 1.5, y: 30, opacity: 0, delay: 0.5, ease: 'power3.out' });
-  gsap.from('#start-btn', { duration: 1.5, y: 30, opacity: 0, delay: 1, ease: 'power3.out' });
-
   const startBtn = document.getElementById('start-btn');
   const heroSection = document.querySelector('.hero');
   const formContainer = document.querySelector('.form-container');
 
+  // Simple fade animation
+  const fadeOut = (element) => {
+    element.style.opacity = 0;
+    setTimeout(() => {
+      element.classList.add('hidden');
+    }, 500);
+  };
+
+  const fadeIn = (element) => {
+    element.classList.remove('hidden');
+    setTimeout(() => {
+      element.style.opacity = 1;
+    }, 50);
+  };
+
   startBtn.addEventListener('click', () => {
-    gsap.to(heroSection, { duration: 0.5, opacity: 0, y: -50, onComplete: () => {
-      heroSection.classList.add('hidden');
-      formContainer.classList.remove('hidden');
-      gsap.fromTo(formContainer, { opacity: 0, y: 50 }, { duration: 0.8, opacity: 1, y: 0, ease: 'power3.out' });
-    }});
+    fadeOut(heroSection);
+    setTimeout(() => {
+      fadeIn(formContainer);
+    }, 500);
   });
 
   const form = document.getElementById('user-form');
@@ -33,8 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     alert('Welcome. Redirecting to Vaibhav.AI Chat...');
-    // Redirect to chat interface or process form
+    // Here you would redirect to chat or process the form
   });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function validatePhone(phone) {
+    return /^\d{10}$/.test(phone);
+  }
+});  });
 
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
